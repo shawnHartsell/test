@@ -15,7 +15,7 @@ jobs:
     steps:      
       - name: download actions-sync
         run: |
-          wget https://github.com/actions/actions-sync/releases/download/$ACTIONS_SYNC_VERSION/actions.actions-sync$ACTIONS_SYNC_VERSION_$ACTIONS_SYNC_PLATFORM.tar.gz
+          wget https://github.com/actions/actions-sync/releases/download/$ACTIONS_SYNC_VERSION/actions.actions-sync_$ACTIONS_SYNC_VERSION_$ACTIONS_SYNC_PLATFORM.tar.gz
           tar -xf actions.actions-sync_$ACTIONS_SYNC_VERSION_$ACTIONS_SYNC_PLATFORM.tar.gz
               
       - name: sync actions
