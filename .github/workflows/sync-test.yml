@@ -15,8 +15,8 @@ jobs:
     steps:      
       - name: download actions-sync
         run: |
-          wget https://github.com/actions/actions-sync/releases/download/v202404231422/actions.actions-sync_202404231422_linux_amd64.tar.gz
-          tar -xf actions.actions-sync_202404231422_linux_amd64.tar.gz
+          wget https://github.com/actions/actions-sync/releases/download/v202404051308/gh_202404051308_linux_arm64.tar.gz
+          tar -xf gh_202404051308_linux_arm64.tar.gz
               
       - name: sync actions
         run: |
