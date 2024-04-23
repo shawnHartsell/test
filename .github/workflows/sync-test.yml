@@ -1,0 +1,29 @@
+name: sync actions
+on:
+  workflow_dispatch:
+jobs:
+  sync:
+    runs-on: [ ubuntu-20.04 ]
+    env:
+        # Version of the actions-sync from https://github.com/actions/actions-sync/releases
+        ACTIONS_SYNC_VERSION: v202404231422
+        # Platform of the actions-sync binary from the release (darwin_arm64, linux_amd64, windows_amd64, etc)
+        ACTIONS_SYNC_PLATFORM: linux_amd64
+        # CSV of repositories to sync to GHES
+        REPOS_TO_SYNC: "actions/checkout"
+
+    steps:      
+      - name: download actions-sync
+        run: |
+          wget https://github.com/actions/actions-sync/releases/download/$ACTIONS_SYNC_VERSION/gh_$ACTIONS_SYNC_VERSION_gh_$ACTIONS_SYNC_PLATFORM.tar.gz
+          tar -xf $ACTIONS_SYNC_VERSION_gh_$ACTIONS_SYNC_PLATFORM.tar.gz
+              
+      - name: sync actions
+        run: |
+          mkdir -p cache
+          ./bin/actions-sync sync \
+          --cache-dir "cache" \
+          --source-url "${{secrets.ACTIONS_SYNC_SOURCE_URL}}" \
+          --destination-url "${{secrets.ACTIONS_SYNC_DEST_URL}}" \
+          --destination-token "${{secrets.ACTIONS_DEST_TOKEN}}" \
+          --repo-name-list "${{REPOS_TO_SYNC}}"
