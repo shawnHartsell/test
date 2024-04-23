@@ -26,4 +26,4 @@ jobs:
           --source-url "${{secrets.ACTIONS_SYNC_SOURCE_URL}}" \
           --destination-url "${{secrets.ACTIONS_SYNC_DEST_URL}}" \
           --destination-token "${{secrets.ACTIONS_DEST_TOKEN}}" \
-          --repo-name-list "${{REPOS_TO_SYNC}}"
+          --repo-name-list "${{$REPOS_TO_SYNC}}"
