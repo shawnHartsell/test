@@ -10,7 +10,7 @@ jobs:
         # Platform of the actions-sync binary from the release (darwin_arm64, linux_amd64, windows_amd64, etc)
         ACTIONS_SYNC_PLATFORM: linux_amd64
         # CSV of repositories to sync to GHES
-        REPOS_TO_SYNC: "actions/checkout"
+        REPOS_TO_SYNC: "shawnHartsell/test"
 
     steps:      
       - name: download actions-sync
